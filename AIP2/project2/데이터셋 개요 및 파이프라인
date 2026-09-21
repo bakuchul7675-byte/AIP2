@@ -1,0 +1,48 @@
+**English Version**
+
+**1. Datasets Overview**
+
+* **AI Hub Public Complaint Instruction Dataset (`24.공공 민원 상담 LL...`):** High-quality Korean question-and-answer pairs structured for LLM instruction tuning, used for few-shot learning and evaluation.
+* **Daejeon Civil Complaint Records (`대전광역시_국민신문고...` CSV):** Historical empirical records from Daejeon used to train and validate department classification (e.g., Traffic vs. Environment).
+* **Legal Knowledge Base (`주차장법(법률)...` DOCX/PDF):** Ground-truth national and municipal parking statutory articles ingested into the Vector DB to prevent hallucinations and cite official regulations.
+
+**2. End-to-End System Pipeline**
+
+* **Step 1 (Ingestion & Vectorization):** The legal document is chunked by statutory articles (`제N조`) and embedded into a local Vector DB (Chroma/FAISS).
+* **Step 2 (Classification & Routing):** The incoming complaint is classified to identify its core intent and route it to the responsible department (e.g., Transportation Division).
+* **Step 3 (Context Retrieval):** The system performs a semantic search over the Vector DB to retrieve the top-k relevant statutory clauses.
+* **Step 4 (Draft Generation):** The LLM synthesizes the user complaint and retrieved legal context into a standardized public administrative response draft (Empathy $\rightarrow$ Legal Grounding $\rightarrow$ Action Plan).
+
+---
+
+**မြန်မာဘာသာ (Burmese Version)**
+
+**၁။ အသုံးပြုသည့် ဒေတာဆက်များ အကျဉ်းချုပ်**
+
+* **AI Hub လူထုတိုင်ကြားစာ အမေး-အဖြေ ဒေတာ (`24.공공 민원 상담 LL...`):** အစိုးရဌာနဆိုင်ရာ စံအမေးအဖြေ (Instruction Q&A) ပုံစံ JSON ဒေတာဖြစ်ပြီး LLM အား ယဉ်ကျေးသော အစိုးရ အသုံးအနှုန်းများ သင်ကြား/စမ်းသပ်ရန် ဖြစ်သည်။
+* **ဒယ်ဂျွန်း တိုင်ကြားမှု မှတ်တမ်း (`대전광역시_국민신문고...` CSV):** ဒယ်ဂျွန်းမြို့တွင်း တကယ့် လက်တွေ့ တိုင်ကြားစာများနှင့် သက်ဆိုင်ရာ ဌာနလွှဲပြောင်းမှု မှတ်တမ်းများဖြစ်ပြီး ဌာနခွဲခြားခြင်း (Classification) စမ်းသပ်ရန် သုံးသည်။
+* **ဥပဒေ စာရွက်စာတမ်း (`주차장법(법률)...` DOCX/PDF):** တရားဝင် ယာဉ်ရပ်နားမှု ဥပဒေပုဒ်မများဖြစ်ပြီး Vector DB ထဲ ထည့်သွင်းကာ RAG ဖြင့် တိကျသော ဥပဒေအထောက်အထား ကိုးကားရန် သုံးသည်။
+
+**၂။ စနစ်တစ်ခုလုံး အလုပ်လုပ်ပုံ (End-to-End Pipeline)**
+
+* **အဆင့် ၁ (Ingestion):** ဥပဒေစာသားများကို ပုဒ်မများ (`제N조`) အလိုက် ပိုင်းဖြတ် (chunk) ပြီး Embedding ပြုလုပ်ကာ Local Vector DB (Chroma/FAISS) ထဲသို့ ထည့်သွင်းသိမ်းဆည်းသည်။
+* **အဆင့် ၂ (Classification):** ဝင်ရောက်လာသော တိုင်ကြားစာကို ဖတ်ရှုပြီး မည်သည့်ဌာန (ဥပမာ- ယာဉ်ကြောထိန်းသိမ်းရေးဌာန) နှင့် သက်ဆိုင်သည်ကို အမျိုးအစား ခွဲခြားသည်။
+* **အဆင့် ၃ (Retrieval):** တိုင်ကြားစာနှင့် တိုက်ရိုက်ကိုက်ညီသည့် ဥပဒေပုဒ်မများကို Vector DB မှ ရှာဖွေဆွဲထုတ် (Retrieve) သည်။
+* **အဆင့် ၄ (Generation):** LLM က တိုင်ကြားချက်နှင့် ရရှိလာသော ဥပဒေအချက်အလက်ကို ပေါင်းစပ်ကာ အစိုးရ စံပုံစံအတိုင်း အဖြေလွှာ မူကြမ်း (စာနာနားလည်မှု $\rightarrow$ ဥပဒေကိုးကားချက် $\rightarrow$ အရေးယူမည့် အစီအစဉ်) ကို ထုတ်ပေးသည်။
+
+---
+
+**한국어 버전 (Korean Version)**
+
+**1. 데이터셋 개요**
+
+* **AI Hub 공공 민원 상담 데이터 (`24.공공 민원 상담 LL...`):** 공공기관 표준 질의응답 및 Instruction 형식의 JSON 데이터로, 정중한 공공 응대 어조 학습 및 검증에 활용.
+* **대전광역시 국민신문고 접수 처리 현황 CSV:** 대전시 실제 민원 텍스트와 처리 기관 데이터로, 민원 유형 및 소관 부서 분류(Classification) 작업에 활용.
+* **법령 지식 베이스 (`주차장법(법률)...` DOCX/PDF):** 실제 법률 및 조례 원문 데이터로, RAG의 Vector DB에 적재하여 환각(Hallucination) 없이 정확한 법령 조항을 인용하는 데 활용.
+
+**2. 엔드투엔드 시스템 파이프라인 (Pipeline)**
+
+* **1단계 (문서 적재 및 벡터화):** 법령 문서를 조항(`제N조`) 단위로 청킹(Chunking)한 후 임베딩하여 로컬 Vector DB(Chroma/FAISS)에 저장.
+* **2단계 (민원 분류 및 라우팅):** 인입된 시민 민원 텍스트를 분석하여 핵심 의도와 소관 부서(예: 교통과, 환경과 등)를 다중 분류.
+* **3단계 (법령 검색 - RAG Retrieval):** 민원 내용과 가장 연관성이 높은 법률 조항 상위 k개를 Vector DB에서 유사도 기반으로 검색.
+* **4단계 (답변 초안 생성 - Generation):** 검색된 법률 근거를 바탕으로 공공기관 표준 민원 답변 서식(공감 및 접수 확인 $\rightarrow$ 법령 검토 $\rightarrow$ 향후 조치 계획)에 맞춘 최종 답변 초안 생성.
