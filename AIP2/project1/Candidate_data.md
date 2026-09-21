@@ -4,3 +4,5 @@
 2. 용도별 목적 대화 데이터 - AIHub
   https://aihub.or.kr/aihubdata/data/view.do?pageIndex=1&currMenu=115&topMenu=100&srchOptnCnd=OPTNCND001&searchKeyword=%EC%9A%A9%EB%8F%84%EB%B3%84+%EB%AA%A9%EC%A0%81&srchDetailCnd=DETAILCND001&srchOrder=ORDER001&srchPagePer=20&aihubDataSe=data&dataSetSn=544
 
+3. 심리상담데이터 - AIHub
+  https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&searchKeyword=%EC%8B%AC%EB%A6%AC%EC%83%81%EB%8B%B4%20%EB%8D%B0%EC%9D%B4%ED%84%B0&aihubDataSe=data&dataSetSn=71806
