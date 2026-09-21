@@ -1,7 +1,8 @@
 방문객의 선호와 대전 지역의 실제 상권을 연결하고, 상권 쇠퇴가 예상되는 지역으로 방문객을 유도하는 AI 기반 맞춤형 지역 상권 추천 시스템
 
 Title: AI 기반 대전 지역상권 활성화 추천 시스템
-
+----------------------------------------------------------------------------------------------------------------------------------------------
+'''
 USER
 "Recommend a cafe with a pretty view."
                  ↓
@@ -37,7 +38,8 @@ USER
                 LLM
                  ↓
 "Here are 3 cafés with beautiful
-
+'''
+-----------------------------------------------------------------------------------------------------------------------------------
 **Current Datasets Acquired (11 Files)**
 
 * **1. Base Layer — Store Location & Census**
@@ -64,7 +66,6 @@ USER
 
 
 
----
 
 **Missing / Needed Data**
 
@@ -72,7 +73,7 @@ USER
 * **Tourism & Attractions Data (TourAPI, etc.):** Required to recommend nearby tourist spots and local festivals alongside restaurants/cafés.
 * **Business Licensing Data by District × Time × Industry (API #32):** Granular 3-way time-series tracking openings and closures (optional/deprioritized for now).
 * **Foot Traffic for the Remaining 4 Districts:** Needed if foot traffic normalization is required across all 5 autonomous districts of Daejeon.
-
+-----------------------------------------------------------------------------------------------------------------------------------
 
 **기확보 데이터셋 목록 (11개 파일)**
 
@@ -100,7 +101,7 @@ USER
 
 
 
----
+
 
 **미확보 / 추가 필요 데이터**
 
@@ -110,12 +111,12 @@ USER
 * **서구 외 나머지 4개 구 유동인구 데이터:** 대전시 5개 구 전체를 대상으로 유동인구 지표를 정규화(Normalization)하여 비교할 경우 필요.
 
 
-
+-----------------------------------------------------------------------------------------------------------------------------------
 views in neighborhoods you can
 explore while supporting local
 businesses..."
 
-
+'''
 [1. 데이터 수집]
        ↓
 [상권 데이터]
@@ -166,3 +167,4 @@ businesses..."
 추천합니다.
 예쁜 전망과 사진 촬영에 적합하며,
 현재 상권 활성화가 필요한 지역입니다."
+'''
